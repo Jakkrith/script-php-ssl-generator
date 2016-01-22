@@ -1,10 +1,3 @@
-<?php
-
-//Initial variables
-
-$dir = "files/";
-
-?>
 <html>
 <body>
 <form action="pfxgen.php" method="post" name="pfxgen">
@@ -12,10 +5,17 @@ $dir = "files/";
 <tr>
 <td>Duid de key file aan: </td>
 <?php
-//loop die de files in een dropdown steekt
+
+//initial variables
+
+$dir = "files/";
+
 echo "<td><select name='keyfile'>";
 $dirdisplay = opendir($dir);
 $options = array();
+
+//loop to create an alphabetical dropdown
+
 while (($bestand = readdir($dirdisplay)) !== false) {
 	if  ($bestand != "." && $bestand != ".." && (substr($bestand, -3, 3)) == "key" ) {
 		$options[] = $bestand;
@@ -28,13 +28,13 @@ foreach($options as $option){
 	closedir($dirdisplay);
 echo "</select></td></tr>";
 
-//Upload het certificaat via een tekstveld
+//Upload the certificate in the text field
 
-echo "<tr><td>Plak het certificaat in dit tekstveld</td><td><textarea name='certfile' rows='20' cols='65'></textarea></td></tr>";
+echo "<tr><td>Paste the certificate in thie field</td><td><textarea name='certfile' rows='20' cols='65'></textarea></td></tr>";
 
-//Duid de bundel aan
+//Root bundle dropdown
 
-echo "<tr><td>Duid het type certificaat aan</td><td><select name='bundlefile'>";
+echo "<tr><td>Select the proper bundle (root and intermediate certificates)</td><td><select name='bundlefile'>";
 $dirdisplay = opendir($dir);
 while (($bestand = readdir($dirdisplay)) !== false) {
         if  ($bestand != "." && $bestand != ".." && (substr($bestand, -6, 6 )) == "bundle" ) {
@@ -44,9 +44,9 @@ while (($bestand = readdir($dirdisplay)) !== false) {
         closedir($dirdisplay);
 echo "</select></td></tr>";
 
-// Wachtwoord
+// Password
 
-echo "<tr><td>Vul een wachtwoord in, enkel voor niet UAC certificaten</td><td><input type='text' name='wachtwoord'></text></td></tr>";
+echo "<tr><td>Enter a password. You can leave this empty.</td><td><input type='text' name='wachtwoord'></text></td></tr>";
 
 //Submit
 echo "</table><p><input type='submit'></p>";
