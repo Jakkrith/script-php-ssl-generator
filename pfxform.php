@@ -46,7 +46,7 @@ echo "</select></td></tr>";
 
 // Password
 
-echo "<tr><td>Enter a password. You can leave this empty.</td><td><input type='text' name='wachtwoord'></text></td></tr>";
+echo "<tr><td>Enter a password. You can leave this empty.</td><td><input type='text' name='pfxpassword'></text></td></tr>";
 
 //Submit
 echo "</table><p><input type='submit'></p>";
