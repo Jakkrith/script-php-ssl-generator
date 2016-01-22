@@ -5,7 +5,7 @@
 $Keyfile = $_POST['keyfile'];
 $Certfile = $_POST['certfile'];
 $Bundlefile = $_POST['bundlefile'];
-$Wachtwoord = $_POST['wachtwoord'];
+$pfxPassword = $_POST['pfxpassword'];
 
 //extra variables
 
@@ -19,5 +19,5 @@ $Bundleresult = file_get_contents('files/' . $Bundlefile, "r");
 $Extra = array( 
 'extracerts' => $Bundlefile
 );
-if ($Pfxresult = openssl_pkcs12_export_to_file($Certfile, $Pfxfile, $Keyresult, $Wachtwoord, $Extra)) 
+if ($Pfxresult = openssl_pkcs12_export_to_file($Certfile, $Pfxfile, $Keyresult, $pfxPassword, $Extra)) 
 echo "Success.";
