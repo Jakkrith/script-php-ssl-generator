@@ -3,7 +3,7 @@
 <form action="pfxgen.php" method="post" name="pfxgen">
 <table border="0">
 <tr>
-<td>Duid de key file aan: </td>
+<td>Select the private key: </td>
 <?php
 
 //initial variables
